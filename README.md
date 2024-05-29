@@ -180,12 +180,85 @@ void main(){
 ![image](image.png)
 
 
+![image](image_4.png)
 
+### If-else:
+```dart
+bool isAdult = false;
+void main(){
 
+  //bool isAdult = false;
+  //dead code as it is recognized as false....
+  if(isAdult){
+    print("Adult");
+  }else{
+    print("Child");
+  }
+}
+```
 
+### Ternary and Switch : 
+```dart
+String str = "Dart";
+//Ternary:
+ String checkS = str.startsWith('D') && str.endsWith('t') ? "It's Dart":"It's Flutter";
 
+print(checkS);
 
+//Switch:
+switch(str){
+  case 'Dart':
+    print('It\'s Dart');
+  case 'Flutter':
+    print('It\'s Flutter');
+  default:
+    print('Java');
+}
 
+//Break lage nah...But jokhn ekta case e milbe kintu kisu kora lagbe nah then break use korbo...
+
+// We can check other condition also : 
+int age = 18;
+
+switch(7){
+  case 1:
+    print('Hello');
+  case 7 when age==18:
+    break;
+  default:
+      print("Yooo");
+}
+```
+
+### Exercise : 
+
+```dart
+/*
+Develop a program to calculate the shipping cost based on the destination zone and the weight of the package(You will be provided)
+Calculate the shipping cost according to these conditions:
+If the destination zone is 'XYZ', the shipping cost is $5 per kilogram.
+If the destination zone is 'ABC', the shipping cose is $7 per kilogram.
+If the destination zone is 'PQR', the shipping cost is $10 per kilogram.
+If the destination zone is not 'XYZ','ABC', or 'PQR', display an error message
+*/
+void main(){
+  String destinationZone = 'XYZ';
+  double weightInKgs = 6;
+  double cost = 0;
+  if(destinationZone=='XYZ'){
+    cost = weightInKgs*5;
+  }else if(destinationZone=='ABC'){
+    cost = weightInKgs*7;
+  }else if(destinationZone == 'PQR'){
+    cost = weightInKgs*10;
+  }else{
+    print('Error!');
+    return;
+  }
+
+  print('Shippping Cost: \$$cost');
+}
+```
 
 
 
