@@ -261,12 +261,96 @@ void main(){
 ```
 
 
+### Function Basic : 
+```dart
+String name(){
+  return 'Dart';
+}
+//Kono kisu na dile dynamic : not preferable....
+printName(){
+  return 12;
+}
+void main(){
+  print(name());
+  print(printName());
+  //const name = printName(); impossible
+  var nV = printName();
+  final nF = printName();
+  print(nV+nF);
+}
+```
 
+## Records(same as tuple):using it return various types
 
+```dart
+(int,String,bool,String) printDetails(){
+  return(007,'Dart',true,'Flutter');
+}
+void main(){
+  print(printDetails());//(7, Dart, true, Flutter)
 
+  var details = printDetails();
+  print(details.$1);
+  print(details.$2);
+  print(details.$3);
+  /*
+  7
+  Dart
+  true
+  */
+//Dispatch all:
+var(num,name,isTrue,dev)=printDetails();
+  print(num);
+  print(name);
+  print(isTrue);
+  print(dev);
+}
+```
+### Passing Arguments :
 
+```dart
+//Using positonal argument:
+void printDetails(String name, int age, String address){
+  print('name:$name\nage:$age\naddress:$address');
+}
+void main(){
+  //It is difficult to pass right things:
+  printDetails('Flutter',7,'Google');
+}
+```
 
+### Solution : 
+```dart
+//Using named Arguments:
 
+void printDetails({required String name, required int age,required String address}){
+  print('name:$name\nage:$age\naddress:$address');
+}
+void main(){
+  //Wrong order e likhleo somossa nai karon ekhane konta ki seta se hisabei jasse:
+  printDetails(name: 'Dart',address: 'Google',age: 7);
+}
+```
+
+### If doesn't pass any then make this nullabe:
+```dart
+void printDetails({required String name, int? age,required String address}){
+  print('name:$name\nage:$age\naddress:$address');
+}
+void main(){
+  printDetails(name: 'Dart',address: 'Google');
+  // name:Dart
+  // age:null
+  // address:Google
+
+  printDetails(name: 'Dart',address: 'Google',age: 7);
+
+  // name:Dart
+  // age:7
+  // address:Google
+
+}
+```
 
 
 
